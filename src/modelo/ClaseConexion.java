@@ -12,8 +12,8 @@ import java.sql.*;
 public class ClaseConexion {
       //Variables para la cadena de conexión
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
-    private static final String USUARIO = "GABRIEL_DEVELOPER";
-    private static final String CONTRASENA = "hKAKI88v";
+    private static final String USUARIO = "system";
+    private static final String CONTRASENA = "ITR2024";
     //Creación del metodo de conexión que retorna la conexión
     public static Connection getConexion() {
         try {
@@ -28,7 +28,7 @@ public class ClaseConexion {
             System.out.println("Este es el error" + e);
               return null;
         } catch (ClassNotFoundException ex) {
-            System.out.println("este es el error de la clase" + ex);
+            System.out.println("este es el error de la clase " + ex);
               return null;
         }
     }

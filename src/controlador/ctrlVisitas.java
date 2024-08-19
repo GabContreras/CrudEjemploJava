@@ -36,7 +36,9 @@ public class ctrlVisitas implements MouseListener {
         modelo.setEdad(Integer.parseInt(Vista.txtEdad.getText()));
         modelo.setEspecialidad(Vista.txtEspecialidad.getText());
         
+        
         modelo.Guardar();
+        modelo.Mostrar(Vista.jTbPcientes);
        }
     }
 
