@@ -8,15 +8,16 @@ package controlador;
  *
  * @author Estudiante
  */
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import modelo.tbVisitas;
 import vista.frmVisitas;
 
-public class ctrlVisitas implements MouseListener {
-    
+public class ctrlVisitas implements MouseListener, KeyListener {
+
 //3- Heredar de la clase que detecta las acciones 
-   
     //1- Mandar a llamar a las otras capas 
     private tbVisitas modelo;
     private frmVisitas Vista;
@@ -27,19 +28,44 @@ public class ctrlVisitas implements MouseListener {
         this.Vista = Vista;
 
         Vista.btnAgregar.addMouseListener(this);
+        modelo.Mostrar(Vista.jtbPacientes);
+        Vista.btnEliminar.addMouseListener(this);
+        Vista.btnActualizar.addMouseListener(this);
+        Vista.BtnLimpiar.addMouseListener(this);
+        Vista.jtbPacientes.addMouseListener(this);
+        Vista.txtBuscar.addKeyListener(this);
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       if(e.getSource()== Vista.btnAgregar){
-        modelo.setNombre(Vista.txtNombre.getText());
-        modelo.setEdad(Integer.parseInt(Vista.txtEdad.getText()));
-        modelo.setEspecialidad(Vista.txtEspecialidad.getText());
-        
-        
-        modelo.Guardar();
-        modelo.Mostrar(Vista.jTbPcientes);
-       }
+        if (e.getSource() == Vista.btnAgregar) {
+            modelo.setNombre(Vista.txtNombre.getText());
+            modelo.setEdad(Integer.parseInt(Vista.txtEdad.getText()));
+            modelo.setEspecialidad(Vista.txtEspecialidad.getText());
+
+            modelo.Guardar();
+            modelo.Mostrar(Vista.jtbPacientes);
+
+        }
+        if (e.getSource() == Vista.btnEliminar) {
+            modelo.Eliminar(Vista.jtbPacientes);
+            modelo.Mostrar(Vista.jtbPacientes);
+        }
+        if (e.getSource() == Vista.jtbPacientes) {
+            modelo.cargarDatosTabla(Vista);
+        }
+        if (e.getSource() == Vista.btnActualizar) {
+            modelo.setNombre(Vista.txtNombre.getText());
+            modelo.setEdad(Integer.parseInt(Vista.txtEdad.getText()));
+            modelo.setEspecialidad(Vista.txtEspecialidad.getText());
+            modelo.Actualizar(Vista.jtbPacientes);
+            modelo.Mostrar(Vista.jtbPacientes);
+        }
+        if (e.getSource() == Vista.BtnLimpiar) {
+            modelo.Limpiar(Vista);
+        }
+      
     }
 
     @Override
@@ -58,5 +84,20 @@ public class ctrlVisitas implements MouseListener {
     public void mouseExited(MouseEvent e) {
     }
 
-}
+    @Override
+    public void keyTyped(KeyEvent e) {
+          if (e.getSource() == Vista.txtBuscar) {
+            modelo.Buscar(Vista.jtbPacientes, Vista.txtBuscar);
+        }
+        
+    }
 
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+
+}

@@ -52,7 +52,7 @@ public class frmVisitas extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         txtEspecialidad = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTbPcientes = new javax.swing.JTable();
+        jtbPacientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -103,7 +103,7 @@ public class frmVisitas extends javax.swing.JFrame {
             }
         });
 
-        jTbPcientes.setModel(new javax.swing.table.DefaultTableModel(
+        jtbPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -114,7 +114,7 @@ public class frmVisitas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTbPcientes);
+        jScrollPane1.setViewportView(jtbPacientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,7 +261,7 @@ public class frmVisitas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTbPcientes;
+    public javax.swing.JTable jtbPacientes;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JTextField txtEdad;
     public javax.swing.JTextField txtEspecialidad;
